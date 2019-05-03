@@ -1,0 +1,144 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Игра "Angry Pigs"</title>
+	<style>
+		html, body{height:100%; margin:0; padding:0; overflow:hidden;}
+		#main{
+			background:url(images/fon.jpg);
+			background-size:cover;
+			cursor: url(images/cursor.cur), pointer;
+		}
+		#bird_10, #bird_20, #bird_30, #bird_50, #bird_70, #bird_100{position:absolute; top:0; left:0;}
+	</style>
+</head>
+
+<body id="main">
+
+
+	<img src="images/bird_10_points.png" id="bird_10" onclick="puff10()" />
+	<img src="images/bird_20_points.png" id="bird_20" onclick="puff20()" />
+	<img src="images/bird_30_points.png" id="bird_30" onclick="puff30()" />
+	<img src="images/bird_50_points.png" id="bird_50" onclick="puff50()" />
+	<img src="images/bird_70_points.png" id="bird_70" onclick="puff70()" />
+	<img src="images/pig_minus_100_points.png" id="bird_100" onclick="puff_100()">
+
+	<h1 style="text-align:center; color:#fff; text-shadow:2px 2px 5px #000">Ваш счет: <span id="score">0</span></h1>
+	<h1 style="text-align:center; color:#fff; text-shadow:2px 2px 5px #000">Время: <span id="time">0</span></h1>
+
+
+	<script>
+		var widthBody=screen.availWidth;
+		var heightBody=screen.availHeight;
+		var score_game=0;
+		var time_game=120;
+
+
+		setInterval("move_bird10()", 2500);
+		setInterval("move_bird20()", 2000);
+		setInterval("move_bird30()", 1500);
+		setInterval("move_bird50()", 1000);
+		setInterval("move_bird70()", 500);
+		setInterval("move_bird_100()", 1000);
+
+		function move_bird10(){
+			document.getElementById("bird_10").style.top=rand(0,heightBody-250)+"px";
+			document.getElementById("bird_10").style.left=rand(0,widthBody-200)+"px";
+			document.getElementById("bird_10").src="images/bird_10_points.png";
+		}
+			
+		function move_bird20(){
+			document.getElementById("bird_20").style.top=rand(0,heightBody-250)+"px";
+			document.getElementById("bird_20").style.left=rand(0,widthBody-200)+"px";
+			document.getElementById("bird_20").src="images/bird_20_points.png";
+		}
+
+		function move_bird30(){
+			document.getElementById("bird_30").style.top=rand(0,heightBody-250)+"px";
+			document.getElementById("bird_30").style.left=rand(0,widthBody-200)+"px";
+			document.getElementById("bird_30").src="images/bird_30_points.png";
+		}
+
+		function move_bird50(){
+			document.getElementById("bird_50").style.top=rand(0,heightBody-250)+"px";
+			document.getElementById("bird_50").style.left=rand(0,widthBody-200)+"px";
+			document.getElementById("bird_50").src="images/bird_50_points.png";
+		}
+
+		function move_bird70(){
+			document.getElementById("bird_70").style.top=rand(0,heightBody-250)+"px";
+			document.getElementById("bird_70").style.left=rand(0,widthBody-200)+"px";
+			document.getElementById("bird_70").src="images/bird_70_points.png";
+		}
+
+		function move_bird_100(){
+			document.getElementById("bird_100").style.top=rand(0,heightBody-250)+"px";
+			document.getElementById("bird_100").style.left=rand(0,widthBody-200)+"px";
+			document.getElementById("bird_100").src="images/pig_minus_100_points.png";
+		}	
+
+		function rand(a,b){
+			return Math.round(Math.random()*(b-a)+a);
+		}
+
+		function puff10(){
+			document.getElementById("bird_10").src="images/bang.png";
+			score_game+=10;
+			document.getElementById("score").innerHTML=score_game;
+		}
+
+		function puff20(){
+			document.getElementById("bird_20").src="images/bang.png";
+			score_game+=20;
+			document.getElementById("score").innerHTML=score_game;
+		}
+
+		function puff30(){
+			document.getElementById("bird_30").src="images/bang.png";
+			score_game+=30;
+			document.getElementById("score").innerHTML=score_game;
+		}
+
+		function puff50(){
+			document.getElementById("bird_50").src="images/bang.png";
+			score_game+=50;
+			document.getElementById("score").innerHTML=score_game;
+		}
+
+		function puff70(){
+			document.getElementById("bird_70").src="images/bang.png";
+			score_game+=70;
+			document.getElementById("score").innerHTML=score_game;
+		}
+
+		function puff_100(){
+			document.getElementById("bird_100").src="images/bang.png";
+			score_game-=100;
+			document.getElementById("score").innerHTML=score_game;
+		}	
+
+		setInterval("clock()",1000);
+
+		function clock()
+		{
+			time_game--;
+			document.getElementById("time").innerHTML=time_game;
+			if(time_game==0 && score_game<500)
+			{
+				location.href="lose.html";
+			}
+			else if(time_game>=0 && score_game>=500)
+			{
+				location.href="win.html";
+			}
+		}
+
+		move_bird10();
+		move_bird20();
+		move_bird30();
+		move_bird50();
+		move_bird70();
+	</script>
+</body>
+</html>

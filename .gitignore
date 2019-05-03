@@ -1,0 +1,18 @@
+# Ignore NODE JS modules.
+node_modules/
+
+# Ignore modules tree.
+*-lock.json
+*.lock
+
+# Ignore IDEA files.
+.idea/
+.dea
+
+# Ignore log files.
+*.log
+
+# Ignore server settings.
+*.*access
+*/.htaccess
+.htaccess

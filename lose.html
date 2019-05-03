@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Игра "Angry Pigs"</title>
+	<style>
+		html, body{height:100%; margin:0; padding:0; overflow:hidden}
+		#main{
+			background:url(images/you-lose.jpg);
+			background-size:cover;
+			cursor: url(images/cursor.cur), pointer;
+		}
+		#play{position:absolute; bottom:0; right:0;}
+	</style>
+</head>
+
+<body id="main">
+	<img src="images/restar.png" id="play" onclick="runPlay()">
+	<script type="text/javascript">
+	function runPlay(){
+		location.href="game.html";
+	}
+	</script>
+</body>
+
+</html>
